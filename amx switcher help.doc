@@ -1,0 +1,203 @@
+
+----- Help -----      (Extended diag messages are OFF)
+
+---- Legend ----
+<D:P:S>   Device:Port:System. If omitted, assumes master.
+
+--- Commands ---
+? or help                This list.
+date                     Show the current date.
+clear persistent vars    Clear the persistent variables on the next reboot.
+change password          Change your password (requires login).
+device holdoff           [on|off]  Sets the master to holdoff devices until all
+                         objects in the master are running.  If set to ON, any
+                         messages sent to devices in DEFINE_START will be lost,
+                         however, this prevents messages from devices being
+                         lost before DEFINE_START runs.
+disk free                Show the amount of free space on the disk.
+dot1x                    [enable|disable|status]  Enable/Disable 802.1x
+                         security or display current settings.
+echo                     [on|off]  Enables/Disables echo of typed characters.
+export config to usb     [front|back]  Exports configuration data to USB media.
+export config to backup  Exports configuration data to /backup/config.
+export clone to usb      [front|back]  Exports system clone to USB media.
+export clone to backup   Exports system clone to /backup/clone.
+get device holdoff       Show the state of the master's device holdoff setting.
+get duet memory          Display the amount of memory allocated for Duet Java
+                         pool.
+resetadminpassword       Reset Administrator password.
+security help            Show security related commands.
+axlink-trace             [enable|disable] [rx|tx|both]  Enables/Disables AXLINK
+                         message tracing.
+manage firmware          Calculate and display checksums for stored firmware
+                         installation files.
+import                   [kit|tkn|irl|config]  Import files of specified type
+                         from USB media device.
+mem                      Shows the amount of available memory.
+msg                      on [error|warning|info|debug]|off  Enables/Disables
+                         extended diagnostic messages.
+date/time                [on|off]  Enables/Disables date and time stamp on the
+                         telnet session log.
+netlinx log level        Configure the current setting for the NetLinx LOG
+                         facility.
+off                      [D:P:S or Name,Chan]  Turns off the specified channel.
+on                       [D:P:S or Name,Chan]  Turns on the specified channel.
+pass                     [D:P:S or Name]  Puts the Session in pass mode to the
+                         specified device. Mode is exited by ++ ESC ESC.
+                         Display Format is set by ++ ESC n. If n is A,
+                         format=ASCII, D=Decimal,H=Hex.
+ping                     [address]  Pings an address. Address may be an IP or
+                         URL.
+pulse                    [D:P:S or Name, Chan]  Pulses the specified channel.
+pwd                      Lists out the current working directory.
+reboot                   [D:P:S|cold|warm]  Reboots the specified device.
+                         Options:
+                           D:P:S  Reboots the device.
+                           cold  Reboots the master.
+                           warm  Restarts the master process.
+renew dhcp               Renews the current DHCP lease.
+report firmware          Calculate and display checksums for stored firmware
+                         installation files.
+report netlinx           Calculate and display a checksum for the currently
+                         installed Netlinx code.
+reset ntp                Resets NTP servers to default servers.
+reset factory            Resets configuration back to factory defaults. It will
+                         also reboot the device.
+route mode               Set the Master-Master route mode.
+send command             [D:P:S or Name,Command]  Sends the specified command
+                         to the device. The Command uses NetLinx string syntax.
+                         Examples:
+                           send_command 1:1:1,"'This is a test',13,10"
+                           send_command RS232_1,"'This is a test',13,10"
+send string              [D:P:S or Name,String]  Sends the specified string to
+                         the device.
+send level               [D:P:S,LEVEL#,VALUE]  Sends the specified level event
+                         to the device.
+                         Ex: send level 1:1:1,3,7
+set date                 Set the current date.
+set dns                  [D:P:S]  Setup the DNS configuration of a device.
+set duet memory          Set the amount of memory allocated for Duet Java pool.
+set ftp port             Enables/Disables the IP port listened to for FTP
+                         connections.
+set http port            Sets the IP port listened to for HTTP connections.
+set https port           Sets the IP port listened to for HTTPS connections.
+set https redirect       Sets the HTTPS redirect flag. All HTTP requests will
+                         be redirected to HTTPS.
+clear https redirect     Clear the HTTPS redirect flag.
+show https redirect      Show HTTPS redirect status.
+set icsp tcp timeout     Sets the timeout period for ICSP and i!-WebControl TCP
+                         connections.
+set icslan               Sets the ICSLan port values.
+get icslan               Displays the ICSLan port values.
+get leases               Displays the leases on ICSLan port.
+set ip                   [D:P:S]  Setup the IP configuration of a device.
+set ipv6                 [D:P:S]  Setup the IPv6 configuration of a device.
+set log count            Sets the number of entries allowed in the message log.
+set queue size           Set the max entry count for various process queues.
+set ssh port             Sets the IP port listened to for SSH connections.
+set telnet port          Sets the IP port listened to for telnet connections.
+set threshold            Sets the master's internal message thresholds.
+set timeline loopcnt     Sets Sets the master's timeline/event max loopcount.
+set time                 Set the current time.
+set udp bc rate          Set UDP broadcast rate.  A broadcast message is sent
+                         by the master to allow devices to discover the master.
+                         This command allows the broadcast frequency to be
+                         changed or eliminate the broadcast message.
+set url                  [D:P:S]  Setup the initiated connection list URLs of a
+                         device.
+set system number        Sets the system number for the Master.
+set notify throttle      Sets the M2M notification throttle level (1-10).
+show combine             Displays a list of devices, levels, and channels that
+                         are currently combined.
+time                     Show the current time.
+url list                 [D:P:S]  Display the initiated connection list URLs of
+                         a device.
+show log                 [start]  Display the message log. <start> specifies
+                         message to begin the display. 'all' will display all
+                         messages.
+start log                [on|off]  Enables/Disables the start up log.
+show start log           [start]  Display the start up log. <start> specifies
+                         message to begin the display. 'all' will display all
+                         messages.
+usb log                  [front|back] [enable|disable]  Enables/Disables log
+                         writes to USB media.
+get audit status         Displays disk free space percentage, log daemon status.
+list audit files         Display filenames of all locally stored audit files.
+show audit               [filename] [tail]  Display today's audit records.
+                         Optional filename can be specified to display previous
+                         audit logs. Number of lines to tail can be specified.
+clear audit              Removes all locally stored audit files.
+edit audit security      Display / edit security settings for remote syslog
+                         servers.
+list audit servers       Lists all remote syslog servers that receive audit
+                         messages.
+add audit server         [D:P:P]  Adds a remote syslog server for audit
+                         messages.
+                         D - IP address or hostname for the remote server.
+                         P - port number (such as 514, 2514, 6514, 10514, etc.
+                         P - protocol (either UDP, TCP, or RELP).
+remove audit server      [D:P:P] Removes a remote syslog server for audit
+                         messages.
+                         D - IP address or hostname for the remote server.
+                         P - port number (such as 514, 2514, 6514, 10514, etc.
+                         P - protocol (either UDP, TCP, or RELP).
+export audit to usb      [front|back]  Exports all locally stored audit files
+                         to USB media.
+export audit to backup   Exports all locally stored audit files to
+                         /backup/audit.
+clean disk               Deletes files in user directory and the NetLinx
+                         prog.tkn file.
+list                     [-sda] [path]  List a directory as specified by
+                         <path>. The root directory is /opt/amx/.
+                         Example: list /opt/amx/user.
+                         Options:
+                           [-s] short (name only)
+                           [-d] directories only
+                           [-sd] directory name only
+                           [-a] all
+show buffers             Displays current message buffer usage for various
+                         tasks.
+show max buffers         Displays message buffer high water mark for various
+                         tasks.
+clear max buffers        Clears message buffer high water mark for various
+                         tasks.
+msg stats                Displays statistics on number of messages processed in
+                         last 10 seconds.
+dns list                 [D:P:S]  Show the DNS configuration of a device.
+tod adjustments          # of times Linux was different than the clock chip.
+get ip                   [D:P:S]  Show the IP configuration of a device.
+zeroconf                 [enable|disable|status] ZeroConfig setting.
+java security            [enable|disable|status] Java Security Manager setting.
+ndp                      [enable|disable|status] NDP Beacon setting.
+ip status                Provides information about NetLinx IP Connections.
+program info             Displays a list of program modules loaded.
+program                  [enable|disable|status] NetLinx Program run setting.
+show mem                 Displays the memory usage for all memory types.
+ipdd                     [enable|disable|status] IP Device Discovery setting.
+auto locate              [enable|disable|status Enable/disable master auto
+                         locate.
+boot status              Retrieve the current boot status.
+get platform info        Retrieve the platform info.
+show watchdog            View Watchdog Manager monitors
+set cac field            Set CAC Field Validation [SAN|SCN].
+show remote              Displays the Remote Device List (Master-Master).
+show notify              Displays the Notify Device List (Master-Master).
+icspmon                  [enable|disable][port]  Enable/disable ICSP monitoring
+                         on the specified IP port.
+physical status          Displays physical status LED indicators.
+dipswitch                Displays current dipswitch value.
+device status            <D:P:S>[/v]  Displays info about the specified device.
+ds                       See device status.
+show device              [D:P:S][/min][/all]  Displays a list of devices
+                         connected and attributes.
+sd                       See show device.
+show system              [<S>][/min]  Displays a list of devices in a system.
+cpu usage                Displays the total CPU usage.
+log format               Change log format settings.
+show route               [/v]  Displays the Master's routing information.
+show tcp                 [/v][/all]  Displays a list of active TCP connections.
+get device traffic       Gets Diagnostic information about device side traffic
+device debug             Turns the device side traffic debug messages on or off.
+set device reboot        Set the fault response to a NI device side failure
+mail status              Displays mail lib performance.
+mail reset               Reset the mail service.
